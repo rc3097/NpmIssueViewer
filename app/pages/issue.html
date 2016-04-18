@@ -1,0 +1,20 @@
+<div class="jumbotron text-center card card-block row center-block container">
+    <div class="img-container col-md-1">
+        <img src="{{issue.avatar}}">
+    </div>
+	    <div class="container col-md-10">
+			<h1>
+				<span>{{ issue.title}} </span>
+			</h1>
+            <div>
+                <div class="text-muted">
+                    {{ issue.state }} by <a href="https://github.com/{{ issue.username }}">{{ issue.username }}</a>
+                </div>
+            </div>
+            <br />
+            <div>
+                <p ng-bind-html="issue.body | addhref"></p>
+            </div>
+		</div>
+
+</div>

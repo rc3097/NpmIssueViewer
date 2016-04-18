@@ -1,0 +1,39 @@
+<div class="jumbotron text-center">
+	<div class ="row" >
+	    <div id="leftbar" class="col-md-1 bar card" ng-click="decreasePage()">
+	      <span class="bar_toggler_span"><</span>
+	    </div>
+	    <div  class="container col-md-9">
+	        <div ng-repeat="issue in issueLists" class="card card-block">
+	          <div class="row">
+	            <div class="col-md-2 img-container">
+	              <img src="{{issue.issueravatar}}">
+	            </div>
+	            <div class="container col-md-9">
+	              <div >
+					  <h4>
+	                <a href="#issuenumber/{{issue.number}}">
+	                  {{ issue.title }} 
+	                </a>
+					  </h4>
+	                <a ng-repeat="label in issue.labels" href="{{label.url}}" class="label label-primary" style="background-color: #{{label.color}}">
+	                  {{ label.name }}
+	                </a>
+	              </div>
+	              <span class="issuerspan">
+	                #{{issue.number}} by {{issue.issuername}}
+	              </span>
+	              <div>
+	                <div class="card-text">
+	                  {{ issue.body | limitWords }}
+	                </div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+	    </div>
+	    <div id="rightbar" class="col-md-1 bar card" ng-if="issueLists.length!=0" ng-click="increasePage()">
+	            <span class="bar_toggler_span">></span>
+	    </div>
+	</div>
+</div>
